@@ -54,7 +54,32 @@ ggsave("early_january_weather.pdf")
 Answer:
 Although there were intermittent fluctuations in temperature throughout the day, the daily average temperature exhibited a consistent upward trend from January 1st to January 14, followed by a subsequent decline. Also, a rising trend in humidity was observed, commencing around January 7 and reaching its peak approximately on January 14.
 
+Problem 2:
+This problem is intended to emphasize variable types and introduce coercion; some awareness of how R treats numeric, character, and factor variables is necessary for working with these data types in practice. 
 
+1.1) Create a data frame
+```{r prob2_df}
+prob2_df=
+  tibble(
+    rand=rnorm(10),
+    logvec=rand>10,
+    charvec=c("I","L","O","V","E","U","D","A","T","A"),
+    facvec=factor(c("A","B","C","A","C","B","B","A","A","A"))
+  )
+```
+
+```{r warning=FALSE}
+mean(pull(prob2_df,rand))
+mean(pull(prob2_df,logvec))
+mean(pull(prob2_df,charvec))
+mean(pull(prob2_df,facvec))
+```
+
+Answer:
+
+* The mean of a random sample "rand" is `r mean(pull(prob2_df,rand))`
+* The mean of logical vector "logvec" is `r mean(pull(prob2_df,logvec))`
+* For character vector and factor vector the mean function doesn't work because because these data types represent categorical or qualitative data, not quantitative data that can be arithmetically averaged.
 
 
 
