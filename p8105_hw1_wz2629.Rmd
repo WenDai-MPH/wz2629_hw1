@@ -46,17 +46,15 @@ Answer:
 
 
 1.2) Make a scatterplot of temp (y) vs time_hour (x); color points using the humid variabl. Descrive patterns that are apparent in this plot. Export your scatterplot to your project directory using ggsave. 
-
 ```{r xy_scatterplot}
 xy_scatterplot<-ggplot(data=early_january_weather, aes(x=time_hour, y=temp, color=humid))+geom_point()+labs(title="scatterplot of time_hour vs temp",x="time_hour",y="temp")
 ggsave("early_january_weather.pdf")
 ```
 
 Answer:
+Although there were intermittent fluctuations in temperature throughout the day, the daily average temperature exhibited a consistent upward trend from January 1st to January 14, followed by a subsequent decline. Also, a rising trend in humidity was observed, commencing around January 7 and reaching its peak approximately on January 14.
 
 
 
-Problem 2:
-This problem is intended to emphasize variable types and introduce coercion; some awareness of how R treats numeric, character, and factor variables is necessary for working with these data types in practice. 
 
-*
+
