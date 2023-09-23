@@ -43,6 +43,7 @@ Answer:
   * precip:Precipitation, in inches.(Min=0 inches, max=0 inches, mean=0.002 inches, median=0inches, Q1=0 inches and Q3=0 inches)
 
 * The size of the dataset contains `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. 
+
 * the mean temperature is `r mean(pull(early_january_weather,temp))` F. 
 
 
@@ -99,9 +100,7 @@ Answer:
   * When we try to convert character variable,R will attempt to convert each character element to a numeric value, but if the character elements do not represent valid numeric values, you will get result as "NA".
   
 * Yes, it does help to explain what happen what happens when I take the mean:
-  
   * We are able to calculate mean of a random variable in R, as random variables  typically represent numerical data. 
-  
   * We are able to calculate the mean of logical values. R treats TRUE as 1 and FALSE as 0, so the mean represents the proportion of TRUE values in the data. 
   * We are unable to directly calculate the mean of a factor or character variable in R because these data types are categorical. It requires some additional steps to calculate the mean of a factor, we need to convert it to numeric values. 
 
