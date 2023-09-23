@@ -1,0 +1,25 @@
+---
+title: "p8150_hw1_wz2629"
+author: Wen Dai
+date: "2023-09-20"
+output: 
+  github_document
+---
+
+```{r}
+library(tidyverse)
+library(moderndive)
+```
+
+
+Problem 1:
+This problem focuses the use of inline R code, plotting, and the behavior of ggplot for variables of different types. 
+
+```{r}
+data("early_january_weather")
+```
+
+
+
+Problem 2:
+This problem is intended to emphasize variable types and introduce coercion; some awareness of how R treats numeric, character, and factor variables is necessary for working with these data types in practice. 
