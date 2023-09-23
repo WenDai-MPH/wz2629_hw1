@@ -18,8 +18,34 @@ This problem focuses the use of inline R code, plotting, and the behavior of ggp
 ```{r}
 data("early_january_weather")
 ```
+1) Write a short description of the dataset using inline R code; accessing the dataset help file can be informative. 
+```{r}
+nrow(early_january_weather)
+ncol(early_january_weather)
+summary(early_january_weather)
+mean(pull(early_january_weather,temp))
+```
+Answer:
 
+* This dataset is hourly meteorological data for LGA, JFK and EWR for the month of January 2013. It contains 15 variables including: origin, year, month, day, hour, temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib, time_hour. 
+
+* The important variables are:
+
+  * temp:Temperature in F. (Min=24.08F; Max=57.92F; Mean= 39.58F; Median=39.02F, Q1=33.98F, Q3=44.96F)
+
+  * time_hour:Date and hour of the recording as a POSIXct data.(Min: 2013-01-01 ; Max:2013-01-15; Mean=2013-01-08; Median=2013-01-08; Q1=2013-01-04; Q3= 2013-01-12)
+
+  * humid:Relative humidity.(Min=32.86, Max=100.00, Mean=65.48, Median=61.67, Q1=51.34, Q3=78.68)
+
+  * pressure:Sea level pressure in millibars. (Min=1011 millibars, Max=1034 millibars, Mean=1023 millibars, Median=1022 millibars, Q1=1018 millibars, Q3-1027 millibars)
+
+  * precip:Precipitation, in inches.(Min=0 inches, max=0 inches, mean=0.002 inches, median=0inches, Q1=0 inches and Q3=0 inches)
+
+* The size of the dataset contains `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. 
+* the mean temperature is `r mean(pull(early_january_weather,temp))` F. 
 
 
 Problem 2:
 This problem is intended to emphasize variable types and introduce coercion; some awareness of how R treats numeric, character, and factor variables is necessary for working with these data types in practice. 
+
+*
