@@ -12,7 +12,8 @@ library(moderndive)
 ```
 
 
-Problem 1:
+# Problem 1:
+
 This problem focuses the use of inline R code, plotting, and the behavior of ggplot for variables of different types. 
 
 ```{r}
@@ -37,7 +38,7 @@ Answer:
 
   * humid:Relative humidity.(Min=32.86, Max=100.00, Mean=65.48, Median=61.67, Q1=51.34, Q3=78.68)
 
-  * pressure:Sea level pressure in millibars. (Min=1011 millibars, Max=1034 millibars, Mean=1023 millibars, Median=1022 millibars, Q1=1018 millibars, Q3-1027 millibars)
+  * pressure:Sea level pressure in millibars. (Min=1011 millibars, Max=1034 millibars, Mean=1023 millibars, Median=1022 millibars, Q1=1018 millibars, Q3=1027 millibars)
 
   * precip:Precipitation, in inches.(Min=0 inches, max=0 inches, mean=0.002 inches, median=0inches, Q1=0 inches and Q3=0 inches)
 
@@ -54,7 +55,8 @@ ggsave("early_january_weather.pdf")
 Answer:
 Although there were intermittent fluctuations in temperature throughout the day, the daily average temperature exhibited a consistent upward trend from January 1st to January 14, followed by a subsequent decline. Also, a rising trend in humidity was observed, commencing around January 7 and reaching its peak approximately on January 14.
 
-Problem 2:
+# Problem 2:
+
 This problem is intended to emphasize variable types and introduce coercion; some awareness of how R treats numeric, character, and factor variables is necessary for working with these data types in practice. 
 
 1.1) Create a data frame
@@ -80,6 +82,29 @@ Answer:
 * The mean of a random sample "rand" is `r mean(pull(prob2_df,rand))`
 * The mean of logical vector "logvec" is `r mean(pull(prob2_df,logvec))`
 * For character vector and factor vector the mean function doesn't work because because these data types represent categorical or qualitative data, not quantitative data that can be arithmetically averaged.
+
+2.2 Convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables. What happens, and why? Does this help explain what happens when you try to take the mean?
+
+```{r convert_numeric,warning=FALSE,results='hide'}
+rand_logvec<-as.numeric(pull(prob2_df, logvec))
+rand_charvec<-as.numeric(pull(prob2_df,charvec))
+rand_facvect<-as.numeric(pull(prob2_df,facvec))
+```
+
+Answer:
+
+* After use "as.numeric" to convert variables from one type to another.Here is what happens:
+  * We can convert a logical variable to a numeric vector.TRUE is typically converted to 1, and FALSE is converted to 0. 
+  * We can convert vector to a numeric variable, because it converts the levels to their underlying numeric representation, which is typically the integer index of each level.
+  * When we try to convert character variable,R will attempt to convert each character element to a numeric value, but if the character elements do not represent valid numeric values, you will get result as "NA".
+  
+* Yes, it does help to explain what happen what happens when I take the mean:
+  
+  * We are able to calculate mean of a random variable in R, as random variables  typically represent numerical data. 
+  
+  * We are able to calculate the mean of logical values. R treats TRUE as 1 and FALSE as 0, so the mean represents the proportion of TRUE values in the data. 
+  * We are unable to directly calculate the mean of a factor or character variable in R because these data types are categorical. It requires some additional steps to calculate the mean of a factor, we need to convert it to numeric values. 
+
 
 
 
